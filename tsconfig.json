@@ -1,6 +1,8 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "target": "ES2022",
     "declaration": true,
     "removeComments": true,
     "allowSyntheticDefaultImports": true,
@@ -15,7 +17,5 @@
     "outDir": "./dist",
     "rootDir": "./src",
     "sourceMap": true,
-    "moduleResolution": "node",
-    "target": "ES2022"
-  }
+  },
 }

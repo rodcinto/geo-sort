@@ -1,6 +1,6 @@
-type Coordinates = {
+type CoordinatesType = {
   lat: number;
   lon: number;
 };
 
-export { Coordinates };
+export { CoordinatesType };

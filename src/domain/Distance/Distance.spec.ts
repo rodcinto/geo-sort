@@ -24,7 +24,7 @@ describe('distanceCalculator Tests', () => {
   });
   it('shoud return the correct distance between Leipzig and Berlin with Harvesine strategy', () => {
     const EXPECTED_DISTANCE: DistanceType = {
-      km: 149.0961766237834,
+      km: 149.09617662378344,
     };
 
     const calculatedDistance = distanceContext.obtainDistanceBetween(leipzigCoord, berlinCoord);

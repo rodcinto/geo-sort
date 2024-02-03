@@ -43,4 +43,12 @@ describe('LocationsParser Tests', () => {
       ['name', 'coordinates']
     );
   });
+
+  it('Should parse empty lists', () => {
+    const locationsParser = new LocationsParser([]);
+    const coordinatesList = locationsParser.buildParsedLocationsList();
+
+    assert.instanceOf(coordinatesList, List<LocationType>);
+    assert.isUndefined(coordinatesList.getCurrentValue());
+  });
 });

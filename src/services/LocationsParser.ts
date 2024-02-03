@@ -15,7 +15,7 @@ export class LocationsParser {
     }));
   }
 
-  buildParsedLocationsList() {
+  buildParsedLocationsList(): List<LocationType> {
     const locationsList = this.locations.reduce(
       (acc: List<LocationType>, location: LocationType) => {
         acc.append(location);

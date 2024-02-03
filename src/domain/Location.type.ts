@@ -1,8 +1,9 @@
-type Location = {
+import { CoordinatesType } from "./Coordinates.type.js";
+
+type LocationType = {
   name: string;
-  lat: number;
-  lon: number;
+  coordinates: CoordinatesType,
   origin?: boolean;
 };
 
-export { Location };
+export { LocationType };

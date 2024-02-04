@@ -27,21 +27,13 @@ describe('LocationsParser Tests', () => {
       lat: 52.52,
       lon: 13.405,
     };
-    const rawLocations = [
-      dresdenLocation,
-      bohnLocation,
-      leipzigLocation,
-      berlinLocation,
-    ];
+    const rawLocations = [dresdenLocation, bohnLocation, leipzigLocation, berlinLocation];
 
     const locationsParser = new LocationsParser(rawLocations);
     const coordinatesList = locationsParser.buildParsedLocationsList();
 
     assert.instanceOf(coordinatesList, List<LocationType>);
-    assert.containsAllKeys(
-      coordinatesList.getCurrent(),
-      ['name', 'coordinates']
-    );
+    assert.containsAllKeys(coordinatesList.getCurrent(), ['name', 'coordinates']);
   });
 
   it('Should parse empty lists', () => {

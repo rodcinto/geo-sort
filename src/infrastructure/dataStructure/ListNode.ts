@@ -2,9 +2,7 @@ export class ListNode<T> {
   private prev: ListNode<T> | undefined;
   private next: ListNode<T> | undefined;
 
-  constructor(
-    private readonly data: T,
-  ){}
+  constructor(private readonly data: T) {}
 
   getData(): T | undefined {
     return this.data;

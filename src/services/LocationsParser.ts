@@ -1,6 +1,6 @@
-import { LocationType } from "../domain/Location.type.js";
-import { LocationInputType } from "../dto/LocationInput.type.js";
-import { List } from "../infrastructure/dataStructure/List.js";
+import { LocationType } from '../domain/Location.type.js';
+import { LocationInputType } from '../dto/LocationInput.type.js';
+import { List } from '../infrastructure/dataStructure/List.js';
 
 export class LocationsParser {
   private locations: LocationType[];
@@ -16,12 +16,10 @@ export class LocationsParser {
   }
 
   buildParsedLocationsList(): List<LocationType> {
-    const locationsList = this.locations.reduce(
-      (acc: List<LocationType>, location: LocationType) => {
-        acc.append(location);
-        return acc;
-      }, new List<LocationType>()
-    );
+    const locationsList = this.locations.reduce((acc: List<LocationType>, location: LocationType) => {
+      acc.append(location);
+      return acc;
+    }, new List<LocationType>());
 
     locationsList.reset();
 

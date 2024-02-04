@@ -19,7 +19,7 @@ describe('distanceCalculator Tests', () => {
     berlinCoord = {
       lat: 52.52,
       lon: 13.405,
-    }
+    };
     distanceContext = new DistanceContext(new Haversine());
   });
   it('shoud return the correct distance between Leipzig and Berlin with Harvesine strategy', () => {

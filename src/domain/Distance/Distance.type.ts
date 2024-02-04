@@ -1,4 +1,4 @@
 type DistanceType = {
-  km: number
-}
-export { DistanceType }
+  km: number;
+};
+export { DistanceType };

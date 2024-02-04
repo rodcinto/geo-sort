@@ -18,8 +18,8 @@ describe('BruteSort Tests', () => {
   const halleLocation: LocationType = {
     name: 'Halle',
     coordinates: {
-      lat: 51.4820,
-      lon: 11.9690,
+      lat: 51.482,
+      lon: 11.969,
     },
   };
   const leipzigLocation: LocationType = {
@@ -47,7 +47,7 @@ describe('BruteSort Tests', () => {
   const distanceContext = new DistanceContext(new Haversine());
 
   it('Should find closest location with Harvesine', () => {
-    const locationsList = new List<LocationType>(dresdenLocation)
+    const locationsList = new List<LocationType>(dresdenLocation);
     locationsList.append(halleLocation);
     locationsList.append(leipzigLocation);
     locationsList.append(berlinLocation);
@@ -57,7 +57,7 @@ describe('BruteSort Tests', () => {
     assert.equal(halleLocation.name, bruteSorter.pickClosestLocationTo(leipzigLocation).name);
   });
   it('Should find the most distant points with Harvesine', () => {
-    const locationsList = new List<LocationType>(dresdenLocation)
+    const locationsList = new List<LocationType>(dresdenLocation);
     locationsList.append(halleLocation);
     locationsList.append(leipzigLocation);
     locationsList.append(berlinLocation);

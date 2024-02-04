@@ -21,22 +21,22 @@ describe('GeoSorter Tests', () => {
     },
   };
   const hamburgLocation: LocationType = {
-      name: 'Hamburg',
-      coordinates: {
-        lat: 53.5511,
-        lon: 9.9937,
-      },
+    name: 'Hamburg',
+    coordinates: {
+      lat: 53.5511,
+      lon: 9.9937,
+    },
   };
   const stuttgartLocation: LocationType = {
     name: 'Stuttgart',
     coordinates: {
       lat: 48.8566,
-      lon: 9.3190,
+      lon: 9.319,
     },
   };
 
   it('Should brute sort with Harvesine', () => {
-    const locationsList = new List<LocationType>(stuttgartLocation)
+    const locationsList = new List<LocationType>(stuttgartLocation);
     locationsList.append(berlinLocation);
     locationsList.append(leipzigLocation);
     locationsList.append(hamburgLocation);

@@ -1,8 +1,8 @@
-import { CoordinatesType } from "./Coordinates.type.js";
+import { CoordinatesType } from './Coordinates.type.js';
 
 type LocationType = {
   name: string;
-  coordinates: CoordinatesType,
+  coordinates: CoordinatesType;
   origin?: boolean;
 };
 

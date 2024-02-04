@@ -1,11 +1,8 @@
-import { CoordinatesType } from "src/domain/Coordinates.type.js";
-import { DistanceStrategyInterface } from "./DistanceStrategy.interface.js";
+import { CoordinatesType } from 'src/domain/Coordinates.type.js';
+import { DistanceStrategyInterface } from './DistanceStrategy.interface.js';
 
 export class Haversine implements DistanceStrategyInterface {
-  calculateDistance(
-    coord1: CoordinatesType,
-    coord2: CoordinatesType,
-  ): number {
+  calculateDistance(coord1: CoordinatesType, coord2: CoordinatesType): number {
     const EARTH_RADIUS_KM = 6371;
 
     const radLat1 = (coord1.lat * Math.PI) / 180;

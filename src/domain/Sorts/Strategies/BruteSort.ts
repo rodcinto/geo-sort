@@ -1,12 +1,12 @@
-import { LocationType } from "../../../domain/Location.type.js";
-import { DistanceContext } from "../../../domain/Distance/DistanceContext.js";
-import { List } from "../../../infrastructure/dataStructure/List.js";
-import { LocationAwareInterface } from "./LocationAware.interface.js";
+import { LocationType } from '../../../domain/Location.type.js';
+import { DistanceContext } from '../../../domain/Distance/DistanceContext.js';
+import { List } from '../../../infrastructure/dataStructure/List.js';
+import { LocationAwareInterface } from './LocationAware.interface.js';
 
 type ExtremetyLocationsType = {
   initial: LocationType | undefined;
   final: LocationType | undefined;
-}
+};
 
 // A not so charming algorithm that will roughly find the best route.
 export class BruteSort implements LocationAwareInterface {
@@ -43,16 +43,13 @@ export class BruteSort implements LocationAwareInterface {
 
     let nextLocation = this.unsortedList.getCurrent();
     let nextDistance: number;
-    while(nextLocation) {
+    while (nextLocation) {
       if (givenLocation.name === nextLocation.name) {
         nextLocation = this.unsortedList.getNext();
         continue;
       }
 
-      nextDistance = this.distanceContext.obtainDistanceBetween(
-        givenLocation.coordinates,
-        nextLocation.coordinates
-      ).km;
+      nextDistance = this.distanceContext.obtainDistanceBetween(givenLocation.coordinates, nextLocation.coordinates).km;
       if (shortestDistance > nextDistance) {
         shortestDistance = nextDistance;
         closestLocation = nextLocation;
@@ -63,7 +60,7 @@ export class BruteSort implements LocationAwareInterface {
 
     this.unsortedList.reset();
     nextLocation = this.unsortedList.getCurrent();
-    while(nextLocation) {
+    while (nextLocation) {
       if (nextLocation === closestLocation) {
         return this.unsortedList.extract() as LocationType;
       }
@@ -86,12 +83,12 @@ export class BruteSort implements LocationAwareInterface {
     let prevPosition: LocationType | undefined;
     let updateReference: LocationType | undefined;
 
-    while(nextReference) {
-      while(nextPosition) {
+    while (nextReference) {
+      while (nextPosition) {
         evaluatingDistanceKm = this.distanceContext.obtainDistanceBetween(
-            nextReference.coordinates,
-            nextPosition.coordinates
-          ).km;
+          nextReference.coordinates,
+          nextPosition.coordinates,
+        ).km;
         if (maxDistance <= evaluatingDistanceKm) {
           maxDistance = evaluatingDistanceKm;
           initialExtremity = nextReference;
@@ -111,7 +108,7 @@ export class BruteSort implements LocationAwareInterface {
 
     this.unsortedList.reset();
     let nextLocation = this.unsortedList.getCurrent();
-    while(nextLocation) {
+    while (nextLocation) {
       if (nextLocation === initialExtremity || nextLocation === finalExtremity) {
         this.unsortedList.extract();
         this.unsortedList.reset();
@@ -119,6 +116,6 @@ export class BruteSort implements LocationAwareInterface {
       nextLocation = this.unsortedList.getNext();
     }
 
-    return {initial: initialExtremity, final: finalExtremity};
+    return { initial: initialExtremity, final: finalExtremity };
   }
 }

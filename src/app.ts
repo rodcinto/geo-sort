@@ -31,8 +31,8 @@ const schema = buildSchema(`
 `);
 
 const root = {
-  sortLocations: ({ locationsGiven }: { locationsGiven: LocationInputType[]}) => {
-    const locationsParser = new LocationsParser (locationsGiven);
+  sortLocations: ({ locationsGiven }: { locationsGiven: LocationInputType[] }) => {
+    const locationsParser = new LocationsParser(locationsGiven);
     const unsortedLocations = locationsParser.buildParsedLocationsList();
 
     const geoSorter = new GeoSorter();
@@ -41,7 +41,7 @@ const root = {
     sortedList.reset();
 
     const response = [sortedList.getCurrent()];
-    while(sortedList.getNext()) {
+    while (sortedList.getNext()) {
       response.push(sortedList.getCurrent());
     }
 

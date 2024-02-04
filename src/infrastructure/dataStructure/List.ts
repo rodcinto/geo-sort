@@ -1,4 +1,4 @@
-import { ListNode } from "./ListNode.js";
+import { ListNode } from './ListNode.js';
 
 export class List<T> {
   private head: ListNode<T> | undefined;

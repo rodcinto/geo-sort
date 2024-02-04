@@ -39,7 +39,7 @@ describe('LocationsParser Tests', () => {
 
     assert.instanceOf(coordinatesList, List<LocationType>);
     assert.containsAllKeys(
-      coordinatesList.getCurrentValue(),
+      coordinatesList.getCurrent(),
       ['name', 'coordinates']
     );
   });
@@ -49,6 +49,6 @@ describe('LocationsParser Tests', () => {
     const coordinatesList = locationsParser.buildParsedLocationsList();
 
     assert.instanceOf(coordinatesList, List<LocationType>);
-    assert.isUndefined(coordinatesList.getCurrentValue());
+    assert.isUndefined(coordinatesList.getCurrent());
   });
 });

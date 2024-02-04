@@ -7,14 +7,14 @@ describe('Generic List Tests', () => {
   it('Should initialize an empty List', () => {
     const emptyList = new List<number>();
 
-    assert.isUndefined(emptyList.getCurrentValue());
+    assert.isUndefined(emptyList.getCurrent());
   });
 
   it('Should append to an empty list', () => {
     const emptyList = new List<number>();
     emptyList.append(1);
 
-    assert.equal(1, emptyList.getCurrentValue());
+    assert.equal(1, emptyList.getCurrent());
   });
 
   it('Should return undefined if there is no next element', () => {
@@ -26,14 +26,14 @@ describe('Generic List Tests', () => {
   it('Should initialize a list with one element', () => {
     const populatedList = new List<string>('abc');
 
-    assert.equal(3, populatedList.getCurrentValue()?.length);
+    assert.equal(3, populatedList.getCurrent()?.length);
   });
 
   it('Should append to a populated list', () => {
     const populatedList = new List<string>('1');
     populatedList.append('2');
 
-    assert.equal('2', populatedList.getCurrentValue());
+    assert.equal('2', populatedList.getCurrent());
   });
 
   it('Should return undefined when at the end of an appended list', () => {
@@ -41,7 +41,7 @@ describe('Generic List Tests', () => {
     populatedList.append('2');
     populatedList.append('3');
 
-    assert.equal('3', populatedList.getCurrentValue());
+    assert.equal('3', populatedList.getCurrent());
     assert.isUndefined(populatedList.getNext());
   });
 
@@ -51,6 +51,42 @@ describe('Generic List Tests', () => {
     myStringList.append('Third');
     myStringList.reset();
 
-    assert.equal('First', myStringList.getCurrentValue());
+    assert.equal('First', myStringList.getCurrent());
+  });
+
+  it('Should extract the head of a List', () => {
+    const myNumberList = new List<number>(1);
+    myNumberList.append(2);
+    myNumberList.reset();
+    const headValue = myNumberList.extract();
+
+    assert.equal(1, headValue);
+    assert.equal(2, myNumberList.getCurrent());
+  });
+
+  it('Should extract the tail of a List', () => {
+    const myNumberList = new List<number>(1);
+    myNumberList.append(2);
+    const tailValue = myNumberList.extract();
+
+    assert.equal(2, tailValue);
+    assert.equal(1, myNumberList.getCurrent());
+  });
+
+  it('Should extract the middle of a List', () => {
+    const myNumberList = new List<number>(1);
+    myNumberList.append(2);
+    myNumberList.append(3);
+    myNumberList.append(4);
+
+    myNumberList.reset(); // Current == 1
+    myNumberList.getNext(); // Current == 2
+
+    const midValue = myNumberList.extract(); // Extracted == 2. Next (3) takes place.
+
+    assert.equal(2, midValue);
+    assert.equal(3, myNumberList.getCurrent());
+    assert.equal(4, myNumberList.getNext());
+    assert.isUndefined(myNumberList.getNext());
   });
 });

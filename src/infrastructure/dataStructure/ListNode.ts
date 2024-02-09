@@ -2,10 +2,14 @@ export class ListNode<T> {
   private prev: ListNode<T> | undefined;
   private next: ListNode<T> | undefined;
 
-  constructor(private readonly data: T) {}
+  constructor(private data: T) {}
 
   getData(): T | undefined {
     return this.data;
+  }
+
+  setData(data: T): void {
+    this.data = data;
   }
 
   getPrev(): ListNode<T> | undefined {

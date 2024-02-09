@@ -89,4 +89,18 @@ describe('Generic List Tests', () => {
     assert.equal(4, myNumberList.getNext());
     assert.isUndefined(myNumberList.getNext());
   });
+
+  it('Should generate a number of permutations equal to elements factorial', () => {
+    const factorial = (n:number) => ((n==1 || n==0) ? 1: n * factorial(n - 1));
+
+    const intList = new List<string>('a');
+    intList.append('b');
+    intList.append('c');
+    intList.append('d');
+    intList.append('e');
+    intList.append('f');
+
+    const permutations = intList.generatePermutations();
+    assert.equal(permutations.length, factorial(6));
+  });
 });

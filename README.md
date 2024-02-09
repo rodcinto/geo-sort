@@ -17,3 +17,5 @@ GeoSort opens the door to a vast repository of global location insights. Whether
 ## How it works
 
 You provide a list of locations, and it sorts it for you by geo-proximity, from closest to farthest distance.
+
+![Request Illustration](./docs/assets/request-illustration.png)

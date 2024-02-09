@@ -90,25 +90,21 @@ export class List<T> {
     return currentValue;
   }
 
-  swap():void {
+  swap(): void {
     this.swapNodes(this.head as ListNode<T>, this.head?.getNext() as ListNode<T>);
   }
 
   // Credits: https://www.geeksforgeeks.org/one-line-function-for-factorial-of-a-number/
   // Thanks a lot, bud :)
   generatePermutations(): List<T>[] {
-    const backtrack = (
-      res: List<T>[],
-      head: ListNode<T>,
-      current: ListNode<T> | undefined
-    ): void => {
+    const backtrack = (res: List<T>[], head: ListNode<T>, current: ListNode<T> | undefined): void => {
       if (!current?.getData()) {
         const newHead = new List<T>();
         const tail = newHead;
         let temp = head;
         while (temp) {
-            tail.append(temp.getData() as T);
-            temp = temp.getNext() as ListNode<T>;
+          tail.append(temp.getData() as T);
+          temp = temp.getNext() as ListNode<T>;
         }
         res.push(newHead);
         return;
@@ -125,16 +121,12 @@ export class List<T> {
     };
 
     const res: List<T>[] = [];
-    backtrack(
-      res,
-      this.head as ListNode<T>,
-      this.head
-    );
+    backtrack(res, this.head as ListNode<T>, this.head);
 
     return res;
   }
 
-  private swapNodes(n1:ListNode<T>, n2: ListNode<T>): void {
+  private swapNodes(n1: ListNode<T>, n2: ListNode<T>): void {
     const tempData: T = n1.getData() as T;
     n1.setData(n2.getData() as T);
     n2.setData(tempData);

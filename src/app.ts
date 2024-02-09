@@ -36,7 +36,7 @@ const root = {
     const unsortedLocations = locationsParser.buildParsedLocationsList();
 
     const geoSorter = new GeoSorter();
-    const sortedList = geoSorter.bruteSortLocationsWithHarvesine(unsortedLocations);
+    const sortedList = geoSorter.sortWithSalesmanAndHarvesine(unsortedLocations);
 
     sortedList.reset();
 
